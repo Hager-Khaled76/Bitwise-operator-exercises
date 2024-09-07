@@ -88,7 +88,7 @@ int main()
             pos = bitPos;
 
         bitPos++;
-        numC >>= 1; //  Õ—Ìﬂ «·—ﬁ„ ··Ì„Ì‰
+        numC >>= 1; // √ä√ç√ë√≠√ü √á√°√ë√û√£ √°√°√≠√£√≠√§
     }
 
     if (pos != -1) {
@@ -171,7 +171,7 @@ int main()
 
     */
     /***********************13.C program to rotate bits of a number**************************/
-
+/*
     unsigned int num;
     unsigned int  left_rotated, right_rotated;
     unsigned int bits;
@@ -192,9 +192,46 @@ int main()
     printf("Left Rotated number: %u\n", left_rotated);
     printf("Right Rotated number: %u\n", right_rotated);
 
-   // printf("Left Rotated %d: %d\n", rotateLeft(num,bits));
-    // printf("Right Rotated %d: %d\n", rotateRight(num,bits));
+*/
 
+   /******************another profecional method*************************/
+    /*
+    unsigned char x = 0b11110000;
+    int rotation,direction;
+    unsigned char buff = 0;
+    printf("please enter number of rotation: ");
+    scanf("%d",&rotation);
+    printf("please enter the rotation direction: ");
+    scanf("%d",&direction);
+    //if direction =0 will left_rotated
+    if(direction == 0)
+    {
+        for(int i = 0; i < rotation; i++)
+        {
+            buff = x & 0b00000001;
+            x = ((x>>1) | (buff<<7));
+            buff = 0;
+        }
+    }
+    //if direction =1 will right_rotated
+    else if(direction == 1)
+    {
+        for(int i = 0; i < rotation; i++)
+        {
+            buff = x & 0b10000000;
+            x = ((x<<1) | (buff>>7));
+            buff = 0;
+        }
+    }
+
+    printf("0b");
+    for(int i = 7; i >= 0; i--)
+    {
+        printf("%d",((x>>i)&1));
+    }
+    return 0;
+}
+*/
 
     /*******************14.C program to convert decimal to binary number system using bitwise operator******************/
    /*
@@ -223,7 +260,7 @@ int main()
     */
 
     /**********16.C program to check even or odd using bitwise operator***************/
-   /*
+   
     int num;
     printf("input number:");
     scanf("%d",&num);
@@ -231,7 +268,7 @@ int main()
         printf("%d is even",num);
     else
         printf("%d is odd",num);
-    */
+    
 
     return 0;
 }
